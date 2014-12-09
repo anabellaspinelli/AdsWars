@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	   <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css">
+	   <link rel="stylesheet" type="text/css" href="css/styles.css">
+	   <title>ADS WARS</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="author" content="Anabella Spinelli">
+		<meta name="keyword" content="Anabella Spinelli, proyectos, project, self index, self-index, front end, frontend, front-end, learning, api, json, mercadolibre, search, javascript, js, jquery">
+		<meta name="robots" content="index, follow" />
+		<meta name="googlebot" content="index, follow" />
+		<meta name="google" content="notranslate" />	   
+	</head>
+	<body>
+		<div id="head" class="text-center starry-night">
+		<div class="container">
+			<h1>ADS WARS</h1>
+			<p>Buscá el promedio de precios para artículos de segunda mano en ambos sitios, para que sepas dónde encontrar los mejores precios. Haciendo <a href="indexSW.html">click</a> en el promedio podés ver los resultados en cada sitio.</p>
+		</div>	
+		<div id="main" class="container">
+			<div class="row">
+				<div class="col-md-offset-3 col-md-6 col-xs-12">					
+					<form role="form" id="form" class="form-inline">
+						<div class="input-group">
+							<input type="search" placeholder="Buscar en OLX y MercadoLibre" class="form-control" id="txt-term">
+							<span class="input-group-btn">
+								<input type="submit" value="Search!" class="btn btn-default" id="btn-search">
+							</span>
+						</div><!-- /input-group -->
+					</form>
+				</div>
+			</div>
+		    <section id="results">
+		    	<div class="row">
+		    		<div class="col-lg-6 text-center">
+		    			<a href="#" id="olx-link">
+			    			<div id="olx" class="result">
+								<img src="img/olx-logo.png" class="logo" height="82" width="82">
+								<img src="img/spinner.gif" class="spinner" id="spinner-olx" height="50" width="50">
+			    			</div>
+		    			</a>
+		    		</div>
+		    		<div class="col-lg-6 text-center">
+		    			<a href="#" id="ml-link">	    				
+			    			<div id="ml" class="result">
+								<img src="img/mercadolibre-logo.png" class="logo" height="82" width="118">
+								<img src="img/spinner.gif" class="spinner" id="spinner-ml" height="50" width="50">
+			    			</div>
+		    			</a>
+		    		</div>
+		    	</div>
+		    </section>
+		</div>
+	   <script src="../../js/jquery.min.js"></script>
+	   <script src="js/script.js"></script>
+	</body>
+</html>
