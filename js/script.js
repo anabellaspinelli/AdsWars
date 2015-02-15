@@ -61,8 +61,10 @@ function getPricesAndDisplayAverage(siteObj, term) {
 	var termObj = new Term(term, siteObj);
 	$.getJSON(siteObj.apiUrl + termObj.apiTerm + siteObj.apiUsedSufix, function(response){
 		siteObj.siteSpinner.style.display = "none";
+		console.log(response);
 		if ((siteObj.site == "olx" && response.data.length > 0) || (siteObj.site =="ml" && response.results.length > 0)) {		
 			var prices = getItemPrices(response, siteObj.site);
+			console.log(prices);
 			var pricesAverage = calculatePricesAverage(prices);
 			displayPricesAverage(pricesAverage, siteObj, termObj);
 		} else {
@@ -87,7 +89,9 @@ function getItemPrices(resultsJson, site) {
 			}
 		});
 	}
-	return prices;		
+	return prices.sort(function(a, b) {
+		return a - b;
+	});		
 }
 
 /* MANAGE AVERAGES */
