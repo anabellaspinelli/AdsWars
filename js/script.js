@@ -64,7 +64,6 @@ function getPricesAndDisplayAverage(siteObj, term) {
 		console.log(response);
 		if ((siteObj.site == "olx" && response.data.length > 0) || (siteObj.site =="ml" && response.results.length > 0)) {		
 			var prices = getItemPrices(response, siteObj.site);
-			console.log(prices);
 			var pricesAverage = calculatePricesAverage(prices);
 			displayPricesAverage(pricesAverage, siteObj, termObj);
 		} else {
@@ -89,12 +88,24 @@ function getItemPrices(resultsJson, site) {
 			}
 		});
 	}
-	return prices.sort(function(a, b) {
-		return a - b;
-	});		
+
+	prices = discardExtremePrices(prices);
+	console.log(prices);
+	return prices;
 }
 
 /* MANAGE AVERAGES */
+
+function discardExtremePrices(prices) {
+	console.log(prices);
+	prices.sort(function(a, b) {
+		return a - b;
+	});
+
+	prices.splice(0, Math.round(prices.length*0.1));
+	prices.splice(Math.round(prices.length*0.90), prices.length-Math.round(prices.length*0.90));
+	return prices;
+}
 
 function calculatePricesAverage(pricesArray) {
 	var sum = 0;
