@@ -1,6 +1,7 @@
 body {
 	background-color: #000; 
 	background: #000 url("../img/starry-night.jpg"); 
+	background-attachment: fixed;
 }
 
 
@@ -47,8 +48,18 @@ form.form-inline > .checkbox {
 	margin-top: 10px;
 }
 
+i {
+	margin-left: 10px;
+	color: #ff6;
+}
+
+.tooltip-inner {
+	background-color: #F4FCA4;
+	color: #000;
+}
+
 #results {
-	margin-top: 50px;
+	margin-top: 20px;
 }
 
 #results h2 {
@@ -95,6 +106,7 @@ form.form-inline > .checkbox {
 
 #ml-link, #olx-link {
 	display: none;
+	color: #ff6;
 }
 
 #ml-link:hover, #olx-link:hover {

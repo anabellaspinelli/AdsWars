@@ -23,10 +23,8 @@ var olx = {
 	site: "olx",
 	apiUrl: "http://api-v2.olx.com/items?location=capitalfederal.olx.com.ar&searchTerm=",
 	apiJoin: "_",
-	apiUsedSufix: "",
 	searchUrl: "http://www.olx.com.ar/nf/search/",
 	searchJoin: "%2B",
-	searchUsedSufix: "",
 	siteSpinner: document.getElementById("spinner-olx"),
 	currentSearchAvg: 0
 };
@@ -56,12 +54,20 @@ function searchOnBothSites() {
 /* MANAGE PRICES */
 
 function getPricesAndDisplayAverage(siteObj, term) {
-	console.log(document.getElementById("chk-used").checked);
 	clearResults(siteObj.site);
 	siteObj.siteSpinner.style.display = "block";
 	document.getElementById(siteObj.site + "-link").style.display = "none";
 	var termObj = new Term(term, siteObj);
-	$.getJSON(siteObj.apiUrl + termObj.apiTerm + siteObj.apiUsedSufix, function(response){
+	var usedSufix;
+	if (siteObj.site == "ml" && checkUsedValue()) {
+		usedSufix = siteObj.apiUsedSufix;
+		console.log(usedSufix);
+	} else {
+		usedSufix = "";
+	}
+	console.log(siteObj.apiUrl + termObj.apiTerm + usedSufix);
+
+	$.getJSON(siteObj.apiUrl + termObj.apiTerm + usedSufix, function(response){
 		siteObj.siteSpinner.style.display = "none";
 		if ((siteObj.site == "olx" && response.data.length > 0) || (siteObj.site =="ml" && response.results.length > 0)) {		
 			var prices = getItemPrices(response, siteObj.site);
@@ -69,7 +75,6 @@ function getPricesAndDisplayAverage(siteObj, term) {
 			displayPricesAverage(pricesAverage, siteObj, termObj);
 			setSearchLink(siteObj, termObj.searchTerm);
 		} else {
-			console.log("No Results on " + siteObj.site);
 			displayNoResults(siteObj.site);
 		}
 	});
@@ -92,14 +97,12 @@ function getItemPrices(resultsJson, site) {
 	}
 
 	prices = discardExtremePrices(prices);
-	console.log(prices);
 	return prices;
 }
 
 /* MANAGE AVERAGES */
 
 function discardExtremePrices(prices) {
-	console.log(prices);
 	prices.sort(function(a, b) {
 		return a - b;
 	});
@@ -163,4 +166,8 @@ function clearResults(site) {
     var siteLink = document.getElementById(site + '-link');
     siteLink.removeAttribute("target");
     siteLink.setAttribute("href", "#");
+}
+
+function checkUsedValue() {
+	return document.getElementById("chk-used").checked;
 }
