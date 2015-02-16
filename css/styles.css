@@ -28,6 +28,7 @@ a, a:hover, a:visited, a:active, a:focus {
 
 #head  p {
 	font-size: 1.5em;
+	padding: 0 200px 0 200px;
 }
 
 #main {
@@ -37,6 +38,13 @@ a, a:hover, a:visited, a:active, a:focus {
 #form {
 	display: block;
 	margin: 0 auto;
+}
+
+form.form-inline > .checkbox {
+	text-align: left;
+	display: block;
+	color: #fff;
+	margin-top: 10px;
 }
 
 #results {
@@ -83,6 +91,14 @@ a, a:hover, a:visited, a:active, a:focus {
 	display: block;
 	margin: 20px auto;
 	display: none;
+}
+
+#ml-link, #olx-link {
+	display: none;
+}
+
+#ml-link:hover, #olx-link:hover {
+	text-decoration: underline;
 }
 
 /*

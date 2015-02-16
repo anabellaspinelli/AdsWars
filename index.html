@@ -15,7 +15,7 @@
 		<div id="head" class="text-center starry-night">
 		<div class="container">
 			<h1>ADS WARS</h1>
-			<p>Buscá el promedio de precios para artículos de segunda mano en ambos sitios, para que sepas dónde encontrar los mejores precios. Haciendo <a href="indexSW.html">click</a> en el promedio podés ver los resultados en cada sitio.</p>
+			<p>Buscá el promedio de precios para artículos de segunda mano en ambos sitios, para que sepas dónde encontrar los mejores precios<a href="indexSW.html">.</a></p>
 		</div>	
 		<div id="main" class="container">
 			<div class="row">
@@ -27,25 +27,33 @@
 								<input type="submit" value="Search!" class="btn btn-default" id="btn-search">
 							</span>
 						</div><!-- /input-group -->
+						<!--<div class="checkbox">
+							<label for="chk-used">
+								<input id="chk-used" name="checkbox" type="checkbox" value="Usado">
+								Buscar sólo usados.
+							</label>
+						</div>-->					
 					</form>
 				</div>
 			</div>
 		    <section id="results">
 		    	<div class="row">
 		    		<div class="col-lg-6 text-center">
+		    			<div id="olx" class="result">
+							<img src="img/olx-logo.png" class="logo" height="82" width="82">
+							<img src="img/spinner.gif" class="spinner" id="spinner-olx" height="50" width="50">
+		    			</div>
 		    			<a href="#" id="olx-link">
-			    			<div id="olx" class="result">
-								<img src="img/olx-logo.png" class="logo" height="82" width="82">
-								<img src="img/spinner.gif" class="spinner" id="spinner-olx" height="50" width="50">
-			    			</div>
+		    				<h5>Ver página de resultados</h5>
 		    			</a>
 		    		</div>
 		    		<div class="col-lg-6 text-center">
+		    			<div id="ml" class="result">
+							<img src="img/mercadolibre-logo.png" class="logo" height="82" width="118">
+							<img src="img/spinner.gif" class="spinner" id="spinner-ml" height="50" width="50">
+		    			</div>
 		    			<a href="#" id="ml-link">	    				
-			    			<div id="ml" class="result">
-								<img src="img/mercadolibre-logo.png" class="logo" height="82" width="118">
-								<img src="img/spinner.gif" class="spinner" id="spinner-ml" height="50" width="50">
-			    			</div>
+	    					<h5>Ver página de resultados</h5>
 		    			</a>
 		    		</div>
 		    	</div>

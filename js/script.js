@@ -56,16 +56,18 @@ function searchOnBothSites() {
 /* MANAGE PRICES */
 
 function getPricesAndDisplayAverage(siteObj, term) {
+	console.log(document.getElementById("chk-used").checked);
 	clearResults(siteObj.site);
 	siteObj.siteSpinner.style.display = "block";
+	document.getElementById(siteObj.site + "-link").style.display = "none";
 	var termObj = new Term(term, siteObj);
 	$.getJSON(siteObj.apiUrl + termObj.apiTerm + siteObj.apiUsedSufix, function(response){
 		siteObj.siteSpinner.style.display = "none";
-		console.log(response);
 		if ((siteObj.site == "olx" && response.data.length > 0) || (siteObj.site =="ml" && response.results.length > 0)) {		
 			var prices = getItemPrices(response, siteObj.site);
 			var pricesAverage = calculatePricesAverage(prices);
 			displayPricesAverage(pricesAverage, siteObj, termObj);
+			setSearchLink(siteObj, termObj.searchTerm);
 		} else {
 			console.log("No Results on " + siteObj.site);
 			displayNoResults(siteObj.site);
@@ -125,7 +127,6 @@ function displayPricesAverage(avgToDisplay, siteObj, termObj) {
 	averageNode.innerHTML = "$ " + avgToDisplay;
 	var siteNode = document.getElementById(siteObj.site);
 	siteNode.appendChild(averageNode);
-	setSearchLink(siteObj, termObj.searchTerm);
 }
 
 /* MANAGING ELEMENTS FUNCTIONS */
@@ -140,6 +141,7 @@ function setSearchLink(siteObj, term) {
 	var anchor = document.getElementById(siteObj.site + "-link");
 	anchor.setAttribute("target", "_blank");
 	anchor.setAttribute("href", siteObj.searchUrl + urlTerm + siteObj.searchUsedSufix);
+	anchor.style.display = "block";
 }
 
 function displayNoResults(site) {
