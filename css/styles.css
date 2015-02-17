@@ -113,6 +113,70 @@ i {
 	text-decoration: underline;
 }
 
+@media (max-width: 991px) {
+	#head  p {
+		font-size: 1.5em;
+		padding: 0 40px 0 40px;
+	}
+
+	#results h2 {
+		font-size: 3em;
+		margin-top: 30px;
+	}
+	.spinner {
+		width: 30% !important;
+		height: auto !important;
+	}
+}
+
+@media (max-width: 768px) {
+	.result img {
+		height: auto;
+		width: 35%;
+	}
+	#olx.result > img:first-child {
+		height: auto;
+		width: 25%;		
+	}
+	#head h1 {
+		font-size: 7em;
+	}
+	.result {
+		min-height: 170px;
+	}
+	#results h2 {
+		font-size: 2em;
+	}
+	.spinner {
+		width: 20% !important;
+		height: auto !important;
+	}
+}
+
+@media (max-width: 500px) {
+	.result img {
+		height: auto;
+		width: 50%;
+	}
+	#results h2 {
+		font-size: 1.5em;
+		margin-top: 15px;
+	}
+	.result {
+		min-height: 120px;
+	}
+	#olx.result > img:first-child {
+		height: auto;
+		width: 40%;		
+	}
+	.spinner {
+		width: 15% !important;
+		height: auto !important;
+	}
+}
+
+
+
 /*
 ==============================================
 pulse
