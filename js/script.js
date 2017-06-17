@@ -21,7 +21,7 @@ var ml = {
 
 var olx = {
 	site: "olx",
-	apiUrl: "http://api-v2.olx.com/items?location=capitalfederal.olx.com.ar&searchTerm=",
+	apiUrl: "https://api-v2.olx.com/items?location=capitalfederal.olx.com.ar&searchTerm=",
 	apiJoin: "_",
 	searchUrl: "http://www.olx.com.ar/nf/search/",
 	searchJoin: "%2B",
